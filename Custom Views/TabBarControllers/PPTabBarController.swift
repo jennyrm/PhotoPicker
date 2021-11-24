@@ -12,16 +12,16 @@ class PPTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewControllers = [createPhotoPickerVC(), createSavedPhotos()]
+        viewControllers = [createSavedPhotos()]
     }
     
-    private func createPhotoPickerVC() -> UIViewController {
-        let photoPickerVC = PhotoPickerVC()
-        photoPickerVC.title = "Photo Picker"
-        photoPickerVC.tabBarItem = UITabBarItem(title: "Photo Picker", image: UIImage(named: ""), tag: 0)
-        
-        return UINavigationController(rootViewController: photoPickerVC)
-    }
+//    private func createPhotoPickerVC() -> UIViewController {
+//        let photoPickerVC = PhotoPickerVC()
+//        photoPickerVC.title = "Photo Picker"
+//        photoPickerVC.tabBarItem = UITabBarItem(title: "Photo Picker", image: UIImage(named: ""), tag: 0)
+//
+//        return UINavigationController(rootViewController: photoPickerVC)
+//    }
     
     private func createSavedPhotos() -> UIViewController {
         let savedPhotosVC = SavedPhotosVC()
