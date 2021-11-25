@@ -83,7 +83,7 @@ extension MainPageVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
-        let actionSheet = UIAlertController(title: "Camera", message: nil, preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
@@ -94,5 +94,13 @@ extension MainPageVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(actionSheet, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        
+        if let photo = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print("ok")
+        }
     }
 }
